@@ -1,39 +1,52 @@
-# Driver_drowsiness_system_CNN
-This is a system which can detect the drowsiness of the driver using CNN - Python, OpenCV
+# Drowsiness Detection System
 
-The aim of this is system to reduce the number of accidents on the road by detecting the drowsiness of the driver and warning them using an alarm. 
+## Overview
 
-Here, we used Python, OpenCV, Keras(tensorflow) to build a system that can detect features from the face of the drivers and alert them if ever they fall asleep while while driving. The system dectects the eyes and prompts if it is closed or open. If the eyes are closed for 3 seconds it will play the alarm to get the driver's attention, to stop cause its drowsy.We have build a CNN network which is trained on a dataset which can detect closed and open eyes. Then OpenCV is used to get the live fed from the camera and run that frame through the CNN model to process it and classify wheather it opened or closed eyes.
+This Python script utilizes computer vision techniques and a pre-trained deep learning model to detect drowsiness in a live video stream. It employs OpenCV for face and eye detection, and TensorFlow/Keras for predicting eye status (open or closed). When the system detects closed eyes for a specific duration, it triggers an alert to indicate potential drowsiness.
 
-## Setup
-To set the model up:<br />
-Pre-install all the required libraries <br />1) OpenCV<br />
-                                       2) Keras<br />
-                                       3) Numpy<br />
-                                       4) Pandas<br />
-                                       5) OS<br />
-Download the Dataset from the link given below and edit the address in the notebook accordingly.<br />
-Run the Jupyter Notebook and add the model name in detect_drowsiness.py file in line 20.<br />
+### Author
 
-## The Dataset
-The dataset which was used is a subnet of a dataset from(https://www.kaggle.com/datasets/dheerajperumandla/drowsiness-dataset)<br />
-it has 4 folder which are <br />1) Closed_eyes - having 726 pictures<br />
-                          2) Open_eyes - having 726 pictures<br />
-                          3) Yawn - having 725 pictures<br />
-                          4) no_yawn - having 723 pictures<br />
+- **Name:** Revanthraja M
+- **GitHub:** [Revanthraja GitHub Profile](https://github.com/Revanthraja)
 
-## The Convolution Neural Network
-![CNN](https://user-images.githubusercontent.com/16632408/159187014-4bc4b70e-98d6-4313-873f-997ded2eff27.png)
+## Prerequisites
 
-## Accuracy 
-We did 50 epochs, to get a good accuracy from the model i.e. 98% for training accuracy and 96% for validation accuracy.
-![Graph](https://user-images.githubusercontent.com/16632408/159187004-92a72662-ddfe-471d-8bd6-65a3593a70a1.png)
+- Python 3
+- OpenCV (`cv2`)
+- NumPy
+- TensorFlow
+- Keras
+- playsound
+- Haarcascades for Face and Eye detection (`haarcascade_frontalface_default.xml`, `haarcascade_lefteye_2splits.xml`, `haarcascade_righteye_2splits.xml`)
+- Pre-trained drowsiness detection model (`drowiness_new7.h5`)
 
-## The Output 
-1. Open Eyes<br />
-![Open_eyes](https://user-images.githubusercontent.com/16632408/159187179-b557ab8e-fb8c-4408-850b-417893014f8c.png)
-2. Close Eyes<br />
-Here we detect wheater the eyes are closed and count the number of frames for which the eyes were closed (which is 10 frame) greater then that the Alarm will ring and the WARNING sign is displayed.
-![Closed_eyes](https://user-images.githubusercontent.com/16632408/159187305-68cbdee3-8325-4216-85e3-7dbb66a429fb.png)
+## Installation
 
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/Revanthraja/Drowsiness-Detection.git
+Install the required Python librarie
+pip install opencv-python numpy tensorflow keras playsound
+Place the Haarcascades and the pre-trained model (drowiness_new7.h5) in the data directory.
+
+Run the script:
+
+
+python drowsiness_detection.py
+The live video stream will open, detecting faces and eyes in real-time.
+
+If the eyes remain closed for a specific duration, a drowsiness alert will be triggered.
+
+Press q to exit the program.
+
+Configuration
+alarm.mp3: Customize the alarm sound by replacing alarm.mp3 in the data directory.
+Contributing
+Contributions are welcome! Feel free to open issues or pull requests for any improvements or bug fixes.
+
+License
+This project is licensed under the MIT License.
+
+Feel free to modify this template to suit your preferences or add more information about the project as needed.
 
